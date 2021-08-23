@@ -1,0 +1,7 @@
+---
+# defaults file for workshop
+
+apache_webserver:
+  - httpd
+  - mod_ssl
+apache_service: httpd 
