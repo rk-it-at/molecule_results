@@ -4,4 +4,4 @@
 apache_webserver:
   - httpd
   - mod_ssl
-apache_service: httpd 
+apache_service: httpd

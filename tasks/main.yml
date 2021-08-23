@@ -3,13 +3,11 @@
 
 - name: Install Apache webserver
   yum:
-    name: {{ apache_package }}
-    state: latest
+    name: "{{ apache_package }}"
+    state: installed
 
 - name: Start and enable Apache
   service:
     name: "{{ apache_service }}"
     state: started
-    enabled: yes
-
-
+    enabled: true
