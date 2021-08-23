@@ -1,0 +1,5 @@
+---
+
+- src: git+https://github.com/rk-it-at/molecule_dependency.git
+  name: common
+  version: main
