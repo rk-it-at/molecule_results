@@ -3,7 +3,7 @@
 galaxy_info:
   author: René Koch
   description: Molecule workshop.
-  role_name: common
+  role_name: workshop
   namespace: workshop
   company: DI (FH) René Koch
 

@@ -1,4 +1,8 @@
 ---
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 dependency:
   name: galaxy
 driver:

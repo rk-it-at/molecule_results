@@ -6,8 +6,22 @@
     name: "{{ apache_package }}"
     state: installed
 
-- name: Start and enable Apache
+- name: Request certificate for localhost
+  # noqa: no-changed-when
+  command: |
+    openssl req -newkey rsa:2048 -nodes -keyout /etc/pki/tls/private/localhost.key
+    -x509 -days 365 -out /etc/pki/tls/certs/localhost.crt -subj '/CN=localhost'
+
+- name: Start and enable Apache (systemd)
   service:
     name: "{{ apache_service }}"
     state: started
     enabled: true
+  ignore_errors: true
+  register: service_result
+
+- name: Start and enable Apache (command)
+  command: /usr/sbin/httpd -k start
+  args:
+    creates: /run/httpd/httpd.pid
+  when: service_result.failed
