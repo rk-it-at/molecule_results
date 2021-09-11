@@ -7,10 +7,11 @@
     state: installed
 
 - name: Request certificate for localhost
-  # noqa: no-changed-when
   command: |
     openssl req -newkey rsa:2048 -nodes -keyout /etc/pki/tls/private/localhost.key
     -x509 -days 365 -out /etc/pki/tls/certs/localhost.crt -subj '/CN=localhost'
+  args:
+    creates: /etc/pki/tls/certs/localhost.crt
 
 - name: Start and enable Apache (systemd)
   service:
