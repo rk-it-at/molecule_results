@@ -1,4 +1,0 @@
-ansible<2.10
-testinfra
-yamllint
-ansible-lint

@@ -20,7 +20,11 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install 'ansible<2.10'
+          python3 -m pip install yamllint
+          python3 -m pip install ansible-lint
+          python3 -m pip install testinfra
+          python3 -m pip install molecule[docker] docker
       - name: Test with molecule
         run: |
           molecule test
