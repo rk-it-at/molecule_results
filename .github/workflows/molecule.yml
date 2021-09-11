@@ -27,9 +27,8 @@ jobs:
           python3 -m pip install molecule[docker] docker
       - name: Test with molecule
         run: |
-          pwd
-          ls -l
           ansible --version
           python --version
           molecule --version
-          molecule --debug test
+          cd workflow
+          molecule test
